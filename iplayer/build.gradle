@@ -41,6 +41,5 @@ task sourcesJar(type: Jar) {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    //基础
-    implementation 'com.android.support:support-compat:+'
+    implementation 'androidx.core:core:1.9.0'
 }
