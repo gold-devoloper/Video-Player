@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "gold.android.videoplayer"
+        minSdkVersion 16
+        targetSdkVersion 33
+        versionCode rootProject.ext.sdk.versionCode
+        versionName rootProject.ext.sdk.versionName
+        multiDexEnabled true
+        ndk {
+            //ijk解码器，使用abiFilters筛选你需要的so
+            abiFilters 'arm64-v8a','armeabi-v7a'
+        }
+    }
+
+
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+        release {
+            debuggable false
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core:1.7.0'//强制
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //Glide4.x图片加载
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    //弹幕
+    implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.16'
+    implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.16'
+    //网络数据
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    //播放器SDK
+    implementation project(':iplayer')
+    //UI交互组件
+    implementation project(':widget')
+    //ijk音视频解码器
+    implementation project(':ijk')
+    //exo音视频解码器
+    implementation project(':exo')
+    //音视频缓存
+    implementation project(':cache')
+
+}

@@ -1,0 +1,7 @@
+include ':cache'
+include ':app'
+include ':iplayer'
+include ':ijk'
+include ':exo'
+include ':widget'
+rootProject.name = "Video player"

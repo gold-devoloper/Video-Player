@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+//应用打包配置
+//apply from: 'iplayer.gradle'
+//发布到jitpack应用配置
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.gold-devoloper'//xxx:代表你的github用户名
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 33
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+//下列注释配置被apply from: 'iplayer.gradle'替换 配置模块未本地Maven仓库
+//uploadArchives{
+//    repositories.mavenDeployer{
+//        // 配置本地仓库路径，这里是项目的根目录下的maven目录中
+//        repository(url: uri('../maven'))
+//        // 唯一标识 一般为模块包名 也可其他
+//        pom.groupId = rootProject.ext.groupId
+//        // 项目名称（一般为模块名称 也可其他
+//        pom.artifactId = rootProject.ext.artifactId
+//        // 发布的版本号
+//        pom.version = rootProject.ext.version
+//    }
+//}
+
+// 打包源码jar
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier = 'sources'
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    //基础
+    implementation 'com.android.support:support-compat:+'
+}

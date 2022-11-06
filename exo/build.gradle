@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+//发布到jitpack应用配置
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.gold-devoloper'//xxx:代表你的github用户名
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 33
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+// 打包源码jar
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier = 'sources'
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    //播放器
+    implementation project(':iplayer')
+    //EXO解码器
+    api 'com.google.android.exoplayer:exoplayer:2.18.1'
+    api 'com.google.android.exoplayer:exoplayer-core:2.18.1'
+    api 'com.google.android.exoplayer:exoplayer-dash:2.18.1'
+    api "com.google.android.exoplayer:extension-rtmp:2.18.1"
+    api "com.google.android.exoplayer:exoplayer-hls:2.18.1"
+    api "com.google.android.exoplayer:exoplayer-rtsp:2.18.1"
+}

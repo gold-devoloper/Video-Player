@@ -1,0 +1,6 @@
+ext {
+    sdk=[
+         versionCode    : 10000,
+         versionName    : "1.0.0"//SDK版本号
+    ]
+}
