@@ -12,7 +12,7 @@ Add it in your settings.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	  
-	     implementation 'com.github.gold-devoloper:Video-Player:1.0.0'
+	     implementation 'com.github.gold-devoloper:Video-Player:Tag'
 	
 Xml code
 
