@@ -7,18 +7,19 @@ gradle
 Add it in your settings.gradle at the end of repositories:
 
 
-			maven { url 'https://jitpack.io' }
+	     maven { url 'https://jitpack.io' }
       
 Step 2. Add the dependency
 
-	
-	        implementation 'com.github.gold-devoloper:Video-Player:1.0.0'
+	  
+	     implementation 'com.github.gold-devoloper:Video-Player:1.0.0'
 	
 Xml code
-       <gold.android.iplayer.widget.VideoPlayer
-         android:id="@+id/video_player"
-         android:layout_width="match_parent"
-         android:layout_height="200dp"/>
+
+            <gold.android.iplayer.widget.VideoPlayer
+              android:id="@+id/video_player"
+              android:layout_width="match_parent"
+              android:layout_height="200dp"/>
          
 Player ready and start playing
 
@@ -52,7 +53,7 @@ Life cycle processing
              @Override
              public void onBackPressed() {
                if(mVideoPlayer.isBackPressed()){
-               super.onBackPressed();
+                super.onBackPressed();
                 }
               }
 
