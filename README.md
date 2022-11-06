@@ -13,6 +13,13 @@ Step 2. Add the dependency
 
 	  
 	     implementation 'com.github.gold-devoloper:Video-Player:Tag'
+Single
+
+	     implementation 'com.github.gold-devoloper.Video-Player:exo:gold'
+             implementation 'com.github.gold-devoloper.Video-Player:iplayer:gold'
+             implementation 'com.github.gold-devoloper.Video-Player:ijk:gold'
+             implementation 'com.github.gold-devoloper.Video-Player:cache:gold'
+             implementation 'com.github.gold-devoloper.Video-Player:widget:gold'
 	
 Xml code
 
