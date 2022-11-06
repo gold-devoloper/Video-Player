@@ -27,4 +27,6 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //播放器
     implementation project(':iplayer')
+    implementation 'androidx.test:monitor:1.5.0'
+    implementation 'androidx.test.ext:junit:1.1.3'
 }
